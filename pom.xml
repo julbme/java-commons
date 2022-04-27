@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>me.julb</groupId>
+		<artifactId>parent</artifactId>
+		<version>1.1.0</version>
+	</parent>
+	<groupId>me.julb</groupId>
+	<artifactId>commons</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>Julb.me :: Commons</name>
+
+	<url>https://julbme.github.io/java-commons/</url>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+			<distribution>repo</distribution>
+		</license>
+	</licenses>
+
+	<modules>
+		<module>commons-constants</module>
+		<module>commons-dto</module>
+		<module>commons-exceptions</module>
+		<module>commons-imaging</module>
+		<module>commons-interfaces</module>
+		<module>commons-io</module>
+		<module>commons-logging</module>
+		<module>commons-net</module>
+		<module>commons-persistence</module>
+		<module>commons-search</module>
+		<module>commons-security</module>
+		<module>commons-size</module>
+		<module>commons-time</module>
+		<module>commons-util</module>
+		<module>commons-validation</module>
+	</modules>
+
+	<scm>
+		<connection>scm:git:git://github.com/julbme/java-commons.git</connection>
+		<developerConnection>scm:git:git@github.com:julbme/java-commons.git</developerConnection>
+		<url>https://github.com/julbme/java-commons</url>
+	</scm>
+
+	<issueManagement>
+		<system>GitHub Issues</system>
+		<url>https://github.com/julbme/java-commons/issues</url>
+	</issueManagement>
+
+	<distributionManagement>
+		<site>
+			<id>gh-pages</id>
+			<name>GitHub Pages</name>
+			<url>https://julbme.github.io/java-commons/</url>
+		</site>
+	</distributionManagement>
+
+	<properties>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
+
+		<sonar.projectKey>julbme_java-commons</sonar.projectKey>
+	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-constants</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-dto</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-exceptions</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-imaging</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-interfaces</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-io</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-net</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-persistence</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-search</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-security</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-size</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-time</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-util</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>me.julb</groupId>
+				<artifactId>commons-validation</artifactId>
+				<version>${project.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>prepare-agent</id>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<goals>
+							<goal>report</goal>
+						</goals>
+						<phase>verify</phase>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.jreleaser</groupId>
+				<artifactId>jreleaser-maven-plugin</artifactId>
+				<configuration>
+					<configFile>jreleaser.yml</configFile>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
